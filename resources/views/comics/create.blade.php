@@ -38,7 +38,7 @@
                                 <label for="price" class="form-label">
                                     Price *
                                 </label>
-                                <input type="number" class="form-control" id="price" name="price" placeholder="Insert price..." required minlength="1">
+                                <input type="number" class="form-control" id="price" name="price" placeholder="Insert price..." required minlength="1" step="0.01">
                             </div>
                             <div class="mb-3">
                                 <label for="series" class="form-label">
