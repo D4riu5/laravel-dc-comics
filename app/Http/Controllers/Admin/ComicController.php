@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+// Models
+use App\Models\Comic;
+
 class ComicController extends Controller
 {
     /**
@@ -12,9 +15,24 @@ class ComicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    //  custom function to redirect to comics from LOCALE homepage
+    public function welcome()
+    {
+        return redirect()->route('comics.index');
+    }
+
     public function index()
     {
-        //
+        $comics = Comic::all();
+        $links = config('links');
+
+        return view('comics.index', [
+            'comics' => $comics,
+            'links' => $links
+
+        ]);
     }
 
     /**
@@ -46,7 +64,13 @@ class ComicController extends Controller
      */
     public function show($id)
     {
-        //
+        $comic = Comic::findOrFail($id);
+        $links = config('links');
+
+        return view('comics.show', [
+            'comic' => $comic,
+            'links' => $links
+        ]);
     }
 
     /**

@@ -1,0 +1,57 @@
+header{
+
+    #logo{
+        width: 150px;
+    }
+
+    img{
+        width: 75px;
+        aspect-ratio: 1/1;
+    }
+
+    a{
+        text-decoration: none;
+        color: black;
+        padding: 50px 2px;
+        margin: 0 5px;
+        font-size: 14px;   
+        font-weight: bold;
+    
+        &.active{
+            border-bottom: solid 6px #0282F9;
+            padding-bottom: 44px;
+            color: #0282F9;
+        }
+    }
+    
+    .input-group{
+        width: 150px;
+        border: none;
+        border-bottom: 3px solid #0282F9;
+
+        input{
+            border: none;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        // remove bootstrap input glow
+        .form-control:focus {
+            box-shadow: none;
+        }
+        
+        button{
+            border: none;
+            background-color: transparent;
+        }
+    }
+
+    #jumbo{
+        img{
+            width: 100%;
+            aspect-ratio: 4.5/1;
+            object-fit: cover;
+            object-position: 0 0;
+        }
+    }
+}

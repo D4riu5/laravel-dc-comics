@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+// Controllers
+
+use App\Http\Controllers\Admin\ComicController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', [ComicController::class, 'welcome'])->name('home');
+
+// Route::get('/comics', [ComicController::class, 'index']);
+
+Route::resource('comics', ComicController::class);
