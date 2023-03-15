@@ -36,7 +36,7 @@
             </div>
             <div class="d-flex justify-content-center py-2">
                 <a href="{{ route('comics.create') }}">
-                    <div class="my_preview-btn py-2 px-5">
+                    <div class="my_blue_btn rounded-0 my_preview-btn py-2 px-5">
                         ADD NEW COMIC
                     </div>
                 </a>

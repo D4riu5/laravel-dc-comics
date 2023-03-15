@@ -5,7 +5,7 @@
 @endsection
 
 @section('main_section')
-    <main class="my_comics">
+    <main>
         <div class="bg-dark text-white pt-5 pb-3">
             <div class="container position-relative">
                 <div class="my_preview-btn my_floating py-2 px-4 ">
@@ -14,6 +14,7 @@
                 <div>
                     <div class="container my_cards w-50">
                         <form action="{{ route('comics.store') }}" method="POST">
+
                             @csrf
 
                             <div class="mb-3">
@@ -60,7 +61,7 @@
                             </div>
 
                             <div class="d-flex justify-content-center py-2">
-                                <button type="submit" class="btn rounded-0 my_preview-btn py-2 px-5">
+                                <button type="submit" class="btn my_blue_btn rounded rounded-0 my_preview-btn py-2 px-5">
                                     ADD COMIC
                                 </button>
                             </div>

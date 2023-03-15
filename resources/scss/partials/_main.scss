@@ -1,4 +1,4 @@
-main:not(.my_comic){
+main{
     .my_card{
         width: calc(100%/6);
     
@@ -21,6 +21,11 @@ main:not(.my_comic){
         background-color: #0282F9;
         font-size: 12px;
         font-weight: bold;
+        transition: 0.3s;
+
+        &.my_blue_btn:hover{
+            background-color: #55adff;
+        }
     
         &.my_floating{
             position: absolute;

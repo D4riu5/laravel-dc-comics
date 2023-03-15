@@ -45,6 +45,21 @@
                         {{ $comic->description }}
                     </div>
                 </div>
+                <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center py-2 mx-3">
+                        <a href="{{ route('comics.edit' , $comic->id) }}">
+                            <button  class="btn rounded-0 btn-warning py-2 px-5">
+                                EDIT COMIC
+                            </button>
+                        </a>
+                    </div>
+    
+                    <div class="d-flex justify-content-center py-2 mx-3">
+                        <button  class="btn rounded-0 btn-danger py-2 px-5">
+                            DELETE COMIC
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
 
