@@ -55,11 +55,48 @@
                     </div>
     
                     <div class="d-flex justify-content-center py-2 mx-3">
-                        <button  class="btn rounded-0 btn-danger py-2 px-5">
+                        <button  class="btn rounded-0 btn-danger py-2 px-5" data-bs-toggle="modal" data-bs-target="#confirmationModal">
                             DELETE COMIC
                         </button>
                     </div>
                 </div>
+
+                <!-- Modal -->
+                <div class="modal fade text-dark" id="confirmationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5">
+                                    Are you sure?
+                                </h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+
+                            <div class="modal-body">
+                                Press Save changes if you are sure you want to delete this comic. 
+                                Changes are irreversible!
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    Cancel
+                                </button>
+                                
+                                <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                                    
+                                    @csrf
+                                    
+                                    @method('DELETE')
+
+                                    <button type="submit" class="btn btn-danger">
+                                        Save changes
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+  
             </div>
         </div>
 
