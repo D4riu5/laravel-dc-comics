@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 // Models
 use App\Models\Comic;
 
+// Helpers
+use App\Http\Requests\ComicRequest;
+
 class ComicController extends Controller
 {
     /**
@@ -55,7 +58,7 @@ class ComicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ComicRequest $request)
     {
         $data = $request->all();
         // dd($data);
@@ -113,7 +116,7 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ComicRequest $request, $id)
     {
         $comic = Comic::findOrFail($id);
 
@@ -141,3 +144,4 @@ class ComicController extends Controller
         return redirect()->route('comics.index');
     }
 }
+ 

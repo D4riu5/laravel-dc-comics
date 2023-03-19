@@ -23,6 +23,18 @@
 
                 <div>
                     <div class="container my_cards w-50">
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+
                         <form action="{{ route('comics.update' , $comic->id) }}" method="POST">
 
                             @csrf
@@ -33,43 +45,43 @@
                                 <label for="title" class="form-label">
                                     Title *
                                 </label>
-                                <input type="text" class="form-control" id="title" name="title" placeholder="Insert title..." required maxlength="128" value="{{ $comic->title }}">
+                                <input type="text" class="form-control" id="title" name="title" placeholder="Insert title..." required maxlength="128" value="{{ old('title', $comic->title) }}">
                             </div>
                             <div class="mb-3">
                                 <label for="thumb" class="form-label">
                                     Image Link
                                 </label>
-                                <input type="text" class="form-control" id="thumb" name="thumb" placeholder="Insert link..." maxlength="255" value="{{ $comic->thumb }}">
+                                <input type="text" class="form-control" id="thumb" name="thumb" placeholder="Insert link..." maxlength="255" value="{{ old('thumb', $comic->thumb) }}">
                             </div>
                             <div class="mb-3">
                                 <label for="description" class="form-label">
                                     Description
                                 </label>
-                                <textarea class="form-control" id="description" name="description" rows="3" placeholder="Insert description...">{{ $comic->description }}</textarea>
+                                <textarea class="form-control" id="description" name="description" rows="3" placeholder="Insert description...">{{ old('description', $comic->description) }}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="price" class="form-label">
                                     Price *
                                 </label>
-                                <input type="number" class="form-control" id="price" name="price" placeholder="Insert price..." required minlength="1" step="0.01" value="{{ $comic->price }}">
+                                <input type="number" class="form-control" id="price" name="price" placeholder="Insert price..." required minlength="1" step="0.01" value="{{ old('price', $comic->price) }}">
                             </div>
                             <div class="mb-3">
                                 <label for="series" class="form-label">
                                     Series * 
                                 </label>
-                                <input type="text" class="form-control" id="series" name="series" placeholder="Insert series (Batman, Aquaman, etc)..." required maxlength="64" value="{{ $comic->series }}">
+                                <input type="text" class="form-control" id="series" name="series" placeholder="Insert series (Batman, Aquaman, etc)..." required maxlength="64" value="{{ old('series', $comic->series) }}">
                             </div>
                             <div class="mb-3">
                                 <label for="sale_date" class="form-label">
                                     Sale Date *
                                 </label>
-                                <input type="date" class="form-control" id="sale_date" name="sale_date" placeholder="yyyy-mm-dd" required format="yyyy-mm-dd" value="{{ $comic->sale_date }}">
+                                <input type="date" class="form-control" id="sale_date" name="sale_date" placeholder="yyyy-mm-dd" required format="yyyy-mm-dd" value="{{ old('sale_date', $comic->sale_date) }}">
                             </div>
                             <div class="mb-3">
                                 <label for="type" class="form-label">
                                     Type * 
                                 </label>
-                                <input type="text" class="form-control" id="type" name="type" placeholder="Insert type (comic book, graphic novel, etc)..." required maxlength="64" value="{{ $comic->type }}">
+                                <input type="text" class="form-control" id="type" name="type" placeholder="Insert type (comic book, graphic novel, etc)..." required maxlength="64" value="{{ old('type', $comic->type) }}">
                             </div>
 
                             <div class="d-flex justify-content-center py-2">
